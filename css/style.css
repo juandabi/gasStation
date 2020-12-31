@@ -5,3 +5,20 @@ normal blue: #A8DADC
 regular blue: #457B9D
 dark blue: #1D3557
 */
+
+header.container-fluid {
+  background-color: red;
+}
+
+.col-5 {
+  background-color: blue;
+}
+
+.col-7 {
+  background-color: green;
+}
+
+.col-6 {
+  background-color: yellow;
+  border: 1px solid black;
+}
