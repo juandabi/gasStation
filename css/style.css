@@ -5,20 +5,34 @@ normal blue: #A8DADC
 regular blue: #457B9D
 dark blue: #1D3557
 */
-
-header.container-fluid {
-  background-color: red;
+body {
+  background: #a8dadc;
+  mix-blend-mode: normal;
+  justify-content: center;
+  align-content: center;
 }
 
-.col-5 {
-  background-color: blue;
+.row.title {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 60px;
+  line-height: 70px;
+  text-align: center;
+  display: flex;
+  color: #000000;
 }
 
-.col-7 {
-  background-color: green;
-}
-
-.col-6 {
-  background-color: yellow;
+.sold {
+  color: red;
+  text-align: center;
   border: 1px solid black;
+  height: 300px;
+}
+
+.tank {
+  color: red;
+  text-align: center;
+  border: 1px solid black;
+  height: 300px;
 }
