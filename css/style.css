@@ -5,34 +5,76 @@ normal blue: #A8DADC
 regular blue: #457B9D
 dark blue: #1D3557
 */
+
+html {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
 body {
   background: #a8dadc;
   mix-blend-mode: normal;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 }
 
-.row.title {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 60px;
-  line-height: 70px;
+h1 {
+  font-size: x-large;
   text-align: center;
-  display: flex;
-  color: #000000;
+  font-weight: bold;
 }
 
-.sold {
-  color: red;
+h2 {
+  font-size: large;
   text-align: center;
-  border: 1px solid black;
-  height: 300px;
+  font-style: italic;
 }
 
-.tank {
-  color: red;
+h3 {
+  font-size: medium;
   text-align: center;
-  border: 1px solid black;
-  height: 300px;
+  font-weight: bold;
+}
+
+header {
+  margin: 3% 0;
+}
+
+section {
+  /* background-color: white; */
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid black; */
+}
+
+.inputGallonsSold {
+  max-width: 150px;
+  border-radius: 5%;
+}
+
+input.submit {
+  background-color: #1d3557;
+  min-width: 50px;
+  border-radius: 10%;
+  color: #f1faee;
+}
+
+label {
+  font-style: italic;
+}
+
+form {
+  text-align: center;
+}
+
+div.soldList {
+  padding: 1em 0;
+  margin: 1em 0;
+  background: #457b9d;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  text-align: center;
+  color: #f1faee;
+  min-height: 150px;
 }

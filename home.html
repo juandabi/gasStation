@@ -14,25 +14,69 @@
     />
     <!-- My stylesheet -->
     <link rel="stylesheet" href="css/style.css" />
+
+    <!-- My google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
     <title>Fueling Station</title>
   </head>
-  <body>
-    <header class="container">
-      <div class="row title">GAS STATION</div>
-      <div class="row subtitle">level indicator on tanks</div>
+  <body class="container">
+    <header clas="row">
+      <h1>GAS STATION</h1>
+      <h2>level indicator on tanks</h2>
     </header>
-    <section class="container" >
-      <div class="row">
-        <div class="col">
-          <div class="row">
-            <div class="col sold">Fuel sold</div>
-            <div class="col tank">Fuel tank</div>
+
+    <section class="row">
+      <div class="col">
+        <div class="row">
+          <div class="col sold">
+            <h3>Fuel sold</h3>
+            <form action="">
+              <label for="fuelSold">How many gallons did you sell?</label>
+              <input
+                type="number"
+                id="fuelSold"
+                name="fuelSold"
+                class="inputGallonsSold"
+              />
+              <input type="submit" value="Sell" class="submit" />
+            </form>
+            <div class="soldList">
+              <ol>
+                <li>15 Gallons</li>
+                <li>10 Gallons</li>
+                <li>8 Gallons</li>
+              </ol>
+            </div>
           </div>
+          <div class="col tank"><h3>Fuel tank</h3></div>
         </div>
-        <div class="col">
-          <div class="row">
-            <div class="col tank">ACPM tank</div>
-            <div class="col sold">ACPM sold</div>
+      </div>
+      <div class="col">
+        <div class="row">
+          <div class="col tank"><h3>ACPM tank</h3></div>
+          <div class="col sold">
+            <h3>ACPM sold</h3>
+            <form action="">
+              <label for="fuelSold">How many gallons did you sell?</label>
+              <input
+                type="number"
+                id="fuelSold"
+                name="fuelSold"
+                class="inputGallonsSold"
+              />
+              <input type="submit" value="Sell" class="submit" />
+            </form>
+            <div class="soldList">
+              <ol>
+                <li>15 Gallons</li>
+                <li>10 Gallons</li>
+                <li>8 Gallons</li>
+              </ol>
+            </div>
           </div>
         </div>
       </div>
