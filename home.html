@@ -28,11 +28,13 @@
       <h1>GAS STATION</h1>
       <h2>level indicator on tanks</h2>
     </header>
-
+    <!-- section -->
     <section class="row">
+      <!-- colunm fuel -->
       <div class="col">
         <div class="row">
-          <div class="col sold">
+          <!-- colunm fuel sold -->
+          <div class="col">
             <h3>Fuel sold</h3>
             <form action="">
               <label for="fuelSold">How many gallons did you sell?</label>
@@ -52,20 +54,34 @@
               </ol>
             </div>
           </div>
-          <div class="col tank"><h3>Fuel tank</h3></div>
+          <!-- colunm fuel tank -->
+          <div class="col">
+            <h3>Fuel tank</h3>
+            <h4 id="porcentageFuel">Porcentaje%</h4>
+            <div class="tank" id="fuelTank"></div>
+            <h5>Max capacity: 500 gallons</h5>
+          </div>
         </div>
       </div>
+      <!-- colunm acpm -->
       <div class="col">
         <div class="row">
-          <div class="col tank"><h3>ACPM tank</h3></div>
-          <div class="col sold">
+          <!-- colunm acpm tank -->
+          <div class="col">
+            <h3>ACPM tank</h3>
+            <h4 id="porcentageACPM">Porcentaje%</h4>
+            <div class="tank" id="acpmTank"></div>
+            <h5>Max capacity: 500 gallons</h5>
+          </div>
+          <!-- colunm acpm sold -->
+          <div class="col">
             <h3>ACPM sold</h3>
             <form action="">
-              <label for="fuelSold">How many gallons did you sell?</label>
+              <label for="acpmlSold">How many gallons did you sell?</label>
               <input
                 type="number"
-                id="fuelSold"
-                name="fuelSold"
+                id="acpmSold"
+                name="acpmlSold"
                 class="inputGallonsSold"
               />
               <input type="submit" value="Sell" class="submit" />

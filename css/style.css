@@ -34,16 +34,28 @@ h3 {
   text-align: center;
   font-weight: bold;
 }
+h4 {
+  font-size: small;
+  text-align: center;
+  font-weight: 500;
+}
+h5 {
+  font-size: x-small;
+  font-style: italic;
+  text-align: center;
+  color: #1d3557;
+}
 
 header {
   margin: 3% 0;
 }
 
 section {
-  /* background-color: white; */
+  /* background-color: white;
+  border: 1px solid black; */
+
   justify-content: center;
-  align-items: center;
-  /* border: 1px solid black; */
+  align-items: stretch;
 }
 
 .inputGallonsSold {
@@ -60,6 +72,7 @@ input.submit {
 
 label {
   font-style: italic;
+  font-size: x-small;
 }
 
 form {
@@ -67,9 +80,10 @@ form {
 }
 
 div.soldList {
-  padding: 1em 0;
-  margin: 1em 0;
-  background: #457b9d;
+  font-size: x-small;
+  padding: 1em 0 0 0;
+  margin: 1em;
+  background-color: #457b9d;
   border: 1px solid #000000;
   box-sizing: border-box;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -77,4 +91,15 @@ div.soldList {
   text-align: center;
   color: #f1faee;
   min-height: 150px;
+  max-width: 150px;
+}
+
+.tank {
+  margin: 1em;
+  border: 5px solid #000000;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  min-height: 200px;
+  max-width: 250px;
 }
