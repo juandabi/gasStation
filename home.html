@@ -36,6 +36,7 @@
           <!-- colunm fuel sold -->
           <div class="col">
             <h3>Fuel sold</h3>
+             <!-- fuel form -->
             <form action="">
               <label for="fuelSold">How many gallons did you sell?</label>
               <input
@@ -45,7 +46,9 @@
                 class="inputGallonsSold"
               />
               <input type="submit" value="Sell" class="submit" />
+             
             </form>
+            <!-- sold list -->
             <div class="soldList">
               <ol>
                 <li>15 Gallons</li>
@@ -58,7 +61,16 @@
           <div class="col">
             <h3>Fuel tank</h3>
             <h4 id="porcentageFuel">Porcentaje%</h4>
-            <div class="tank" id="fuelTank"></div>
+            <div class="tank progress vertical" id="fuelTank">
+              <div
+                class="progress-bar progress-bar-striped progress-bar-animated"
+                role="progressbar"
+                aria-valuenow="75"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style="width: 75%"
+              ></div>
+            </div>
             <h5>Max capacity: 500 gallons</h5>
           </div>
         </div>
@@ -70,7 +82,16 @@
           <div class="col">
             <h3>ACPM tank</h3>
             <h4 id="porcentageACPM">Porcentaje%</h4>
-            <div class="tank" id="acpmTank"></div>
+            <div class="tank progress vertical" id="acpmTank">
+              <div
+                class="progress-bar progress-bar-striped progress-bar-animated"
+                role="progressbar"
+                aria-valuenow="75"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style="width: 75%"
+              ></div>
+            </div>
             <h5>Max capacity: 500 gallons</h5>
           </div>
           <!-- colunm acpm sold -->
