@@ -1,14 +1,21 @@
-// const printFuelSold = (valueFuel) => {
-//   let x = parseFloat(valueFuel.value);
-//   console.log(x);
-// };
+const submitFuel = document.getElementById("submitFuel");
+submitFuel.addEventListener("click", saveFuelSold);
+const fuelSoldList = [];
 
-function printFuelSold(valueFuel) {
-  let num = parseInt(valueFuel.value);
-  console.log(num);
+function saveFuelSold() {
+  const valueFuel = parseFloat(document.getElementById("fuelSold").value);
+  fuelSoldList.push(valueFuel);
+  console.log(fuelSoldList);
 }
 
-let valueFuel = document.getElementById("fuelSold");
-let submitFuel = document.getElementById("submitFuel");
-submitFuel.addEventListener("click", printFuelSold);
+function printLastFuelSold() {
+  const printList = fuelSoldList.slice(-5).reverse();
+  console.log(printList);
+}
 
+function imprimir() {
+  const node = document.createElement("li");
+  const textnode = document.createTextNode("hola");
+  node.appendChild(textnode);
+  document.getElementById("OrderListFuelSold").appendChild(node);
+}
