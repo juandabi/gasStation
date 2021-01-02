@@ -9,6 +9,7 @@ dark blue: #1D3557
 html {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  font-size: x-small;
 }
 body {
   background: #a8dadc;
@@ -16,24 +17,24 @@ body {
 }
 
 h1 {
-  font-size: x-large;
+  font-size: large;
   text-align: center;
   font-weight: bold;
 }
 
 h2 {
-  font-size: large;
+  font-size: medium;
   text-align: center;
   font-style: italic;
 }
 
 h3 {
-  font-size: medium;
+  font-size: small;
   text-align: center;
   font-weight: bold;
 }
 h4 {
-  font-size: small;
+  font-size: x-small;
   text-align: center;
   font-weight: 500;
 }
@@ -57,21 +58,21 @@ section {
   border-radius: 0.3em;
 }
 
-input.button {
+.button {
   background-color: #1d3557;
-  min-width: 2em;
+  min-width: 4em;
   border-radius: 0.3em;
   color: #f1faee;
 }
 
 label {
   font-style: italic;
-  font-size: small;
-  margin: 1em;
+
+  margin: 1em 0 0;
 }
 
 .soldList {
-  font-size: small;
+
   padding: 1em 0 0 0;
   margin: 1em;
   background-color: #457b9d;
@@ -81,7 +82,7 @@ label {
   border-radius: 20px;
   text-align: left;
   color: #f1faee;
-  min-height: 150px;
+  min-height: 170px;
   width: auto;
 }
 
@@ -90,12 +91,12 @@ label {
   box-shadow: 0px 0px 0px 3px black;
   border-radius: 20px;
   max-width: 80%;
-  min-height: 200px;
+  min-height: 250px;
 }
 
 .progress-bar-vertical {
   width: 100%;
-  min-height: 200px;
+  min-height: 250px;
   display: flex;
   align-items: flex-end;
   margin-right: 20px;
@@ -125,6 +126,11 @@ label {
   }
 }
 
+  .inputGallonsSold {
+     margin: 0.5em 0;
+    max-width: 60%;
+  }
+
 /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 575.98px) {
   .change-direction {
@@ -140,13 +146,19 @@ label {
   .soldList {
     font-size: medium;
     padding: 1em 0 0 0;
-    margin: 3em 20% 2em;
+    margin: 1em 20% 2em;
     min-height: 150px;
     width: 60%;
   }
   h3 {
-  font-size: larger;
-  text-align: center;
-  font-weight: bold;
-}
+    font-size: larger;
+    text-align: center;
+    font-weight: bold;
+  }
+
+ 
+  .inputGallonsSold {
+     margin: 0.5em 0;
+    max-width: 50%;
+  }
 }
