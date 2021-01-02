@@ -54,13 +54,13 @@ section {
 
 .inputGallonsSold {
   max-width: 4em;
-  border-radius: 5%;
+  border-radius: 0.3em;
 }
 
-input.submit {
+input.button {
   background-color: #1d3557;
   min-width: 2em;
-  border-radius: 10%;
+  border-radius: 0.3em;
   color: #f1faee;
 }
 
