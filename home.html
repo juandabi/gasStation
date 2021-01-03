@@ -46,6 +46,7 @@
                   id="fuelSold"
                   name="fuelSold"
                   class="inputGallonsSold"
+                  min="0"
                 />
                 <input
                   type="button"
@@ -57,19 +58,13 @@
               <!-- sold list -->
               <div class="soldList">
                 <h4>Last five transactions</h4>
-                <ul id="listFuelSold">
-                  <li>hola</li>
-                  <li>hola</li>
-                  <li>hola</li>
-                </ul>
+                <ul id="listFuelSold"></ul>
               </div>
             </div>
             <!-- colunm fuel tank -->
             <div class="col-sm-7">
-              <div>
-                <h3>Fuel tank</h3>
-                <h4 id="porcentageFuel">Porcentage%</h4>
-              </div>
+              <h3>Fuel tank</h3>
+              <h4 id="porcentageFuel">4922.39 gallons 100.00%</h4>
               <div class="tank progress progress-bar-vertical" id="fuelTank">
                 <div
                   id="barFuelTank"
@@ -81,7 +76,7 @@
                   style="height: 100%"
                 ></div>
               </div>
-              <h5>Max capacity: 500 gallons</h5>
+              <h5>Max capacity: 4922.39 gallons</h5>
             </div>
           </div>
         </div>
@@ -92,7 +87,7 @@
             <!-- colunm diesel tank -->
             <div class="col-sm-7">
               <h3>Diesel tank</h3>
-              <h4 id="porcentageDiesel">Porcentage%</h4>
+              <h4 id="porcentageDiesel">1603.70 gallons 100.00%</h4>
               <div class="tank progress progress-bar-vertical" id="dieselTank">
                 <div
                   id="barDieselTank"
@@ -104,7 +99,7 @@
                   style="height: 100%"
                 ></div>
               </div>
-              <h5>Max capacity: 500 gallons</h5>
+              <h5>Max capacity: 1603.70 gallons</h5>
             </div>
             <!-- colunm diesel sold -->
             <div class="col-sm-5">
@@ -116,6 +111,7 @@
                   id="dieselSold"
                   name="diesellSold"
                   class="inputGallonsSold"
+                  min="0"
                 />
                 <input
                   type="button"

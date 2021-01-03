@@ -1,56 +1,58 @@
 //variables for Fuel
-const submitFuel = document.getElementById("submitFuel");
+const submitFuel = document.getElementById("submitFuel"); //button Sell
 submitFuel.addEventListener("click", fuelButton);
-const fuelSoldList = [10, 20, 30];
+const fuelSoldList = []; //Array for fuel sold
 
 //variables for Diesel
-const submitDiesel = document.getElementById("submitDiesel");
-submitDiesel.addEventListener("click", fuelButton);
-const dieselSoldList = [50, 40, 90];
+const submitDiesel = document.getElementById("submitDiesel"); //button Sell
+submitDiesel.addEventListener("click", dieselButton);
+const dieselSoldList = []; //Array for diesel sold
 
 function fuelButton() {
   const soldList = fuelSoldList;
-  saveTransactionSold(soldList);
-  printLastFiveSold(soldList);
+  const maxCapacity = 4922.39;
+
+  actionButton(soldList, maxCapacity);
 }
-//function to clear text box
-function clearTextBox(soldList) {
-  if (soldList == fuelSoldList) {
-    document.getElementById("fuelSold").value = ""; //delete value of input text box
-  } else {
-    document.getElementById("dieselSold").value = ""; //delete value of input text box
-  }
+
+function dieselButton() {
+  const soldList = dieselSoldList;
+  const maxCapacity = 1603.70;
+  actionButton(soldList, maxCapacity);
 }
+
 //function to save all transactions in the array
-function saveTransactionSold(soldList) {
+const saveTransactionSold = (soldList, maxCapacity) => {
   const valueFuel = parseFloat(document.getElementById("fuelSold").value);
   const valueDiesel = parseFloat(document.getElementById("dieselSold").value);
   if (soldList == fuelSoldList) {
     //Get list name
-    if (!isNaN(valueFuel)) {
+    if (isValid(fuelSoldList, maxCapacity, valueFuel) === 1) {
+      //value is not empty
       //Value is a number then push in array
       fuelSoldList.push(valueFuel);
       console.log(fuelSoldList);
     }
   } else {
-    if (!isNaN(valueFuel)) {
+    if (isValid(dieselSoldList, maxCapacity, valueDiesel) === 1) {
+      //value is not empty
       //Value is a number then push in array
       dieselSoldList.push(valueDiesel);
       console.log(dieselSoldList);
     }
   }
-}
+};
 
 //function to delete all content in the div that shows last five transactions
-function deleteSoldList(soldList) {
+const deleteSoldList = (soldList) => {
   if (soldList == fuelSoldList) {
     document.getElementById("listFuelSold").innerHTML = "";
   } else {
     document.getElementById("listDieselSold").innerHTML = "";
   }
-}
+};
 //function print las five transactions
-function printLastFiveSold(soldList) {
+const printLastFiveSold = (soldList) => {
   const printList = soldList.slice(-5).reverse();
   printList.forEach((element) => {
     // Prints last five child nodes
@@ -63,18 +65,16 @@ function printLastFiveSold(soldList) {
       document.getElementById("listDieselSold").appendChild(node);
     }
   });
-}
+};
 
-//Modify vetical bar size in the  tanks
-function modifyVerticalBar(soldList, porcentageValue) {
-  const barFuelTank = document.getElementById("barFuelTank"); //id vertical bar
-  const barDieselTank = document.getElementById("barDieselTank"); //id vertical bar
+//function to clear text box
+const clearTextBox = (soldList) => {
   if (soldList == fuelSoldList) {
-    barFuelTank.style.height = porcentageValue;
+    document.getElementById("fuelSold").value = ""; //delete value of input text box
   } else {
-    barDieselTank.style.height = porcentageValue;
+    document.getElementById("dieselSold").value = ""; //delete value of input text box
   }
-}
+};
 
 //sum array sold list
 const sumSoldList = (soldList) => {
@@ -90,16 +90,69 @@ const actualValue = (maxCapacity, sumSoldList) => {
 
 //get porcentage value --  actual value / max capacity
 const porcentageValue = (maxCapacity, actualValue) => {
-  return (actualValue / maxCapacity) * 100 + "%";
+  return (actualValue / maxCapacity) * 100;
 };
 
-//function to modify progress bar in the fuel tank
-function progressBarFuelTank() {
-  const soldList = fuelSoldList;
-  const maxCapacity = 500;
+//Modify vetical bar size in the  tanks
+const modifyVerticalBar = (soldList, porcentageValue) => {
+  const barFuelTank = document.getElementById("barFuelTank"); //id vertical bar
+  const barDieselTank = document.getElementById("barDieselTank"); //id vertical bar
+  if (soldList == fuelSoldList) {
+    barFuelTank.style.height = `${porcentageValue}%`;
+  } else {
+    barDieselTank.style.height = `${porcentageValue}%`;
+  }
+};
+
+//function to print actual value and porcentage value above tank
+const printInfoAboveTank = (soldList, actualValue, porcentageValue) => {
+  if (porcentageValue < 30) {
+    ("alert!");
+  }
+
+  if (soldList == fuelSoldList) {
+    const infoTank = document.getElementById("porcentageFuel");
+    infoTank.innerText = `${parseFloat(actualValue).toFixed(
+      2
+    )} gallons ${parseFloat(porcentageValue).toFixed(2)}%`;
+  } else {
+    const infoTank = document.getElementById("porcentageDiesel");
+    infoTank.innerText = `${parseFloat(actualValue).toFixed(
+      2
+    )} gallons ${parseFloat(porcentageValue).toFixed(2)}%`;
+  }
+};
+
+//function to validate value input is greater than zero and less than actual capacity
+function isValid(soldList, maxCapacity, value) {
+  const actualCapacity = actualValue(maxCapacity, sumSoldList(soldList));
+
+  if (!isNaN(value)) {
+    if (value > 0) {
+      if (value > actualCapacity) {
+        alert("It´s not enough in the tank");
+      } else {
+        return 1;
+      }
+    } else {
+      alert("It must be greater than zero");
+    }
+  }
+}
+
+//function to make actions button
+function actionButton(type, capacity) {
+  const soldList = type;
+  const maxCapacity = capacity;
+
+  saveTransactionSold(soldList, maxCapacity);
+  deleteSoldList(soldList);
+  printLastFiveSold(soldList);
+  clearTextBox(soldList);
   const sum = sumSoldList(soldList);
   const actual = actualValue(maxCapacity, sum);
   const porcentage = porcentageValue(maxCapacity, actual);
   modifyVerticalBar(soldList, porcentage);
-  console.log(sum, actual, porcentage);
+  printInfoAboveTank(soldList, actual, porcentage);
+  console.log(sum, actual, `${porcentage}%`);
 }
