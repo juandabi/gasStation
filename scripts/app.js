@@ -13,7 +13,15 @@ function fuelButton() {
   saveTransactionSold(soldList);
   printLastFiveSold(soldList);
 }
-
+//function to clear text box
+function clearTextBox(soldList) {
+  if (soldList == fuelSoldList) {
+    document.getElementById("fuelSold").value = ""; //delete value of input text box
+  } else {
+    document.getElementById("dieselSold").value = ""; //delete value of input text box
+  }
+}
+//function to save all transactions in the array
 function saveTransactionSold(soldList) {
   const valueFuel = parseFloat(document.getElementById("fuelSold").value);
   const valueDiesel = parseFloat(document.getElementById("dieselSold").value);
@@ -32,49 +40,29 @@ function saveTransactionSold(soldList) {
     }
   }
 }
-// tener funciones separadas, dividir la funcion printlastfive en 3 funciones diferentes.
-// 1. funcion para eliminar el contenido anterior
-// 2. funcion para inmprimir el contenido
-// 3. funcion para borrar contenido del cuadro de texto
 
-function printLastFiveSold(soldList) {
+//function to delete all content in the div that shows last five transactions
+function deleteSoldList(soldList) {
   if (soldList == fuelSoldList) {
-    const listHtml = document.getElementById("ListFuelSold");
-    listHtml.innerHTML = "";
+    document.getElementById("listFuelSold").innerHTML = "";
   } else {
-    const listHtml = document.getElementById("ListDieselSold");
-    listHtml.innerHTML = "";
-  }
-  const printList = soldList.slice(-5).reverse(); //Delete all child nodes
-
-  printList.forEach((element) => {
-    // Prints last five child nodes
-    const node = document.createElement("li");
-    const textnode = document.createTextNode(element + " gallons");
-    node.appendChild(textnode);
-    listHtml.appendChild(node);
-  });
-
-  if (soldList == fuelSoldList) {
-    document.getElementById("fuelSold").value = ""; //delete value of input text box
-  } else {
-    document.getElementById("dieselSold").value = ""; //delete value of input text box
+    document.getElementById("listDieselSold").innerHTML = "";
   }
 }
-
-function printLastDieselSold() {
-  saveDieselSold();
-  const printList = dieselSoldList.slice(-5).reverse();
-  const OrderListDieselSold = document.getElementById("OrderListDieselSold");
-  OrderListDieselSold.innerHTML = ""; //Delete all child nodes
+//function print las five transactions
+function printLastFiveSold(soldList) {
+  const printList = soldList.slice(-5).reverse();
   printList.forEach((element) => {
     // Prints last five child nodes
     const node = document.createElement("li");
     const textnode = document.createTextNode(element + " gallons");
     node.appendChild(textnode);
-    document.getElementById("OrderListDieselSold").appendChild(node);
+    if (soldList == fuelSoldList) {
+      document.getElementById("listFuelSold").appendChild(node);
+    } else {
+      document.getElementById("listDieselSold").appendChild(node);
+    }
   });
-  document.getElementById("dieselSold").value = ""; //delete value of input text box
 }
 
 //Modify vetical bar size in the  tanks
