@@ -43,6 +43,7 @@ const saveTransactionSold = (soldList, maxCapacity) => {
   }
 };
 
+
 //function to delete all content in the div that shows last five transactions
 const deleteSoldList = (soldList) => {
   if (soldList == fuelSoldList) {
