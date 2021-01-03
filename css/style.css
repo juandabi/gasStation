@@ -114,7 +114,7 @@ label {
 #fuelTank .progress-bar-striped {
   background-color: #1d3557;
 }
-#acpmTank .progress-bar-striped {
+#dieselTank .progress-bar-striped {
   background-color: #e63946;
   flex-direction: column;
 }

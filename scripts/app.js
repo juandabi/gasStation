@@ -1,72 +1,90 @@
 //variables for Fuel
 const submitFuel = document.getElementById("submitFuel");
-submitFuel.addEventListener("click", printLastFuelSold);
+submitFuel.addEventListener("click", fuelButton);
 const fuelSoldList = [10, 20, 30];
 
-function saveFuelSold(soldList) {
+//variables for Diesel
+const submitDiesel = document.getElementById("submitDiesel");
+submitDiesel.addEventListener("click", fuelButton);
+const dieselSoldList = [50, 40, 90];
+
+function fuelButton() {
+  const soldList = fuelSoldList;
+  saveTransactionSold(soldList);
+  printLastFiveSold(soldList);
+}
+
+function saveTransactionSold(soldList) {
   const valueFuel = parseFloat(document.getElementById("fuelSold").value);
-  const valueACPM = parseFloat(document.getElementById("acpmSold").value);
-
-  
-  if (!isNaN(valueFuel)) {
-    //Value is a number then push in array
-    fuelSoldList.push(valueFuel);
-    console.log(fuelSoldList);
+  const valueDiesel = parseFloat(document.getElementById("dieselSold").value);
+  if (soldList == fuelSoldList) {
+    //Get list name
+    if (!isNaN(valueFuel)) {
+      //Value is a number then push in array
+      fuelSoldList.push(valueFuel);
+      console.log(fuelSoldList);
+    }
+  } else {
+    if (!isNaN(valueFuel)) {
+      //Value is a number then push in array
+      dieselSoldList.push(valueDiesel);
+      console.log(dieselSoldList);
+    }
   }
 }
+// tener funciones separadas, dividir la funcion printlastfive en 3 funciones diferentes.
+// 1. funcion para eliminar el contenido anterior
+// 2. funcion para inmprimir el contenido
+// 3. funcion para borrar contenido del cuadro de texto
 
-function printLastFuelSold() {
-  saveFuelSold();
-  const printList = fuelSoldList.slice(-5).reverse();
-  const OrderListFuelSold = document.getElementById("OrderListFuelSold");
-  OrderListFuelSold.innerHTML = ""; //Delete all child nodes
+function printLastFiveSold(soldList) {
+  if (soldList == fuelSoldList) {
+    const listHtml = document.getElementById("ListFuelSold");
+    listHtml.innerHTML = "";
+  } else {
+    const listHtml = document.getElementById("ListDieselSold");
+    listHtml.innerHTML = "";
+  }
+  const printList = soldList.slice(-5).reverse(); //Delete all child nodes
+
   printList.forEach((element) => {
     // Prints last five child nodes
     const node = document.createElement("li");
     const textnode = document.createTextNode(element + " gallons");
     node.appendChild(textnode);
-    document.getElementById("OrderListFuelSold").appendChild(node);
+    listHtml.appendChild(node);
   });
-  document.getElementById("fuelSold").value = ""; //delete value of input text box
-}
 
-//variables for ACPM
-const submitACPM = document.getElementById("submitACPM");
-submitACPM.addEventListener("click", printLastACPMSold);
-const acpmSoldList = [50, 40, 90];
-
-function saveACPMSold() {
-  const valueACPM = parseFloat(document.getElementById("acpmSold").value);
-  if (!isNaN(valueACPM)) {
-    //Value is a number then push in array
-    acpmSoldList.push(valueACPM);
-    console.log(acpmSoldList);
+  if (soldList == fuelSoldList) {
+    document.getElementById("fuelSold").value = ""; //delete value of input text box
+  } else {
+    document.getElementById("dieselSold").value = ""; //delete value of input text box
   }
 }
 
-function printLastACPMSold() {
-  saveACPMSold();
-  const printList = acpmSoldList.slice(-5).reverse();
-  const OrderListACPMSold = document.getElementById("OrderListACPMSold");
-  OrderListACPMSold.innerHTML = ""; //Delete all child nodes
+function printLastDieselSold() {
+  saveDieselSold();
+  const printList = dieselSoldList.slice(-5).reverse();
+  const OrderListDieselSold = document.getElementById("OrderListDieselSold");
+  OrderListDieselSold.innerHTML = ""; //Delete all child nodes
   printList.forEach((element) => {
     // Prints last five child nodes
     const node = document.createElement("li");
     const textnode = document.createTextNode(element + " gallons");
     node.appendChild(textnode);
-    document.getElementById("OrderListACPMSold").appendChild(node);
+    document.getElementById("OrderListDieselSold").appendChild(node);
   });
-  document.getElementById("acpmSold").value = ""; //delete value of input text box
+  document.getElementById("dieselSold").value = ""; //delete value of input text box
 }
 
 //Modify vetical bar size in the  tanks
 function modifyVerticalBar(soldList, porcentageValue) {
   const barFuelTank = document.getElementById("barFuelTank"); //id vertical bar
-  const barACPMTank = document.getElementById("barACPMTank"); //id vertical bar
+  const barDieselTank = document.getElementById("barDieselTank"); //id vertical bar
   if (soldList == fuelSoldList) {
     barFuelTank.style.height = porcentageValue;
   } else {
-    barACPMTank.style.height = porcentageValue;
+    barDieselTank.style.height = porcentageValue;
   }
 }
 
