@@ -72,7 +72,6 @@ label {
 }
 
 .soldList {
-
   padding: 1em 0 0 0;
   margin: 1em;
   background-color: #457b9d;
@@ -112,10 +111,10 @@ label {
 }
 
 #fuelTank .progress-bar-striped {
-  background-color: #1d3557;
+  background-color: #c91e1e;
 }
 #dieselTank .progress-bar-striped {
-  background-color: #e63946;
+  background-color: rgb(197, 194, 25);
   flex-direction: column;
 }
 
@@ -126,10 +125,10 @@ label {
   }
 }
 
-  .inputGallonsSold {
-     margin: 0.5em 0;
-    max-width: 60%;
-  }
+.inputGallonsSold {
+  margin: 0.5em 0;
+  max-width: 60%;
+}
 
 /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 575.98px) {
@@ -156,9 +155,8 @@ label {
     font-weight: bold;
   }
 
- 
   .inputGallonsSold {
-     margin: 0.5em 0;
+    margin: 0.5em 0;
     max-width: 50%;
   }
 }
