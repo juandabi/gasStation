@@ -111,10 +111,10 @@ label {
 }
 
 #fuelTank .progress-bar-striped {
-  background-color: #c91e1e;
+  background-color: #e63946;
 }
 #dieselTank .progress-bar-striped {
-  background-color: rgb(197, 194, 25);
+  background-color: #1D3557;
   flex-direction: column;
 }
 
