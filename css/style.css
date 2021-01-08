@@ -72,6 +72,8 @@ label {
 }
 
 .soldList {
+    font-size: x-small;
+
   padding: 1em 0 0 0;
   margin: 1em;
   background-color: #457b9d;
@@ -110,7 +112,7 @@ label {
   transition: height 0.6s ease;
 }
 
-#fuelTank .progress-bar-striped {
+#gasTank .progress-bar-striped {
   background-color: #e63946;
 }
 #dieselTank .progress-bar-striped {
@@ -143,7 +145,7 @@ label {
   }
 
   .soldList {
-    font-size: medium;
+    font-size: x-small;
     padding: 1em 0 0 0;
     margin: 1em 20% 2em;
     min-height: 150px;
